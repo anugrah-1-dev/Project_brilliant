@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
 			TransportsTableSeeder::class,
 			BanksTableSeeder::class,
 			PeriodsTableSeeder::class,
+			PeriodSeeder::class,
 			CoursesTableSeeder::class,
 			// ComboCourseSeeder::class,
 			FeaturesTableSeeder::class,
