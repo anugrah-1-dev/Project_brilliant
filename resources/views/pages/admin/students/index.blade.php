@@ -34,7 +34,7 @@
               <td>{{ $student->token }}</td>
               <td>{{ \Laraindo\TanggalFormat::DateIndo($student->birth_date) }}</td>
               <td>{{ $student->last_education }}</td>
-              <td>{{ $student->payments->first()?->period ? \Laraindo\TanggalFormat::DateIndo($student->payments->first()->period->date) : '-' }}</td>
+              <td>{{ $student->period ? \Laraindo\TanggalFormat::DateIndo($student->period->date) : ($student->payments->first()?->period ? \Laraindo\TanggalFormat::DateIndo($student->payments->first()->period->date) : '-') }}</td>
               <td>{{ $student->address }}</td>
               <td>{{ $student->info_web }}</td>
               <td><a href="{{ route('admin.students.show', $student) }}">Lihat Detail</a></td>

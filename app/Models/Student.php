@@ -15,6 +15,7 @@ class Student extends Model
 	];
 
 	protected $fillable = [
+		'period_id',
 		'token',
 		'fullname',
 		'birth_date',
@@ -37,5 +38,10 @@ class Student extends Model
 	public function permits()
 	{
 		return $this->hasMany(Permit::class);
+	}
+
+	public function period()
+	{
+		return $this->belongsTo(Period::class);
 	}
 }

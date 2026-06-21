@@ -35,6 +35,7 @@ class DaftarController extends Controller
 
 		$validated = $request->validated();
 		$validated['token'] = $invoice;
+		$validated['period_id'] = $request->period;
 
 		$create = Student::create($validated);
 
