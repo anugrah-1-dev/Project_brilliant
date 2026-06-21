@@ -1,0 +1,65 @@
+<!-- Favicon  -->
+<link rel="shortcut icon" href="{{ asset('assets/image/favicon/android-chrome-512x512.png') }}" type="image/x-icon">
+<!-- Bootstrap , fonts & icons  -->
+<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/fonts/icon-font/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/fonts/typography-font/typo.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome-5/css/all.css') }}">
+<!-- Plugin'stylesheets  -->
+<link rel="stylesheet" href="{{ asset('assets/plugins/aos/aos.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/plugins/fancybox/jquery.fancybox.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/plugins/swiper/swiper-bundle.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/plugins/nice-select/nice-select.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/plugins/slick/slick.min.css') }}">
+<!-- Vendor stylesheets  -->
+<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+<!-- Custom stylesheet -->
+<style>
+    .float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 170px;
+        background-color: #0C9;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 2px 2px 3px #999;
+    }
+
+    .float-two {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 105px;
+        background-color: #0C9;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 2px 2px 3px #999;
+    }
+
+    .float-three {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #0C9;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 2px 2px 3px #999;
+    }
+
+    .subname {
+        color: #000;
+        text-decoration: none;
+    }
+
+    .my-float {
+        margin-top: 22px;
+    }
+</style>
