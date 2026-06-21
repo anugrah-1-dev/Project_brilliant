@@ -66,8 +66,7 @@ class PeriodSeeder extends Seeder
 
         foreach ($dates as $date) {
             Period::firstOrCreate(
-                ['date' => $date],
-                ['is_active' => true]
+                ['date' => $date]
             );
         }
     }
