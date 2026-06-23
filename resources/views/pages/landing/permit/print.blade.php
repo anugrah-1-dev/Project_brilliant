@@ -30,7 +30,12 @@
           <div class="container">
             <div class="col-md-12">
               <div class="text-center">
-                <img src="{{ asset('assets/image/logo/logo-surat.png') }}" alt="logo-surat">
+                @php
+                    $logoPath = public_path('assets/image/logo/logo-surat.png');
+                    $logoData = file_exists($logoPath) ? base64_encode(file_get_contents($logoPath)) : '';
+                    $logoSrc = 'data:image/png;base64,' . $logoData;
+                @endphp
+                <img src="{{ $logoSrc }}" alt="logo-surat">
                 <h3 class="pt-0">SURAT IZIN</h3>
               </div>
             </div>
@@ -110,14 +115,28 @@
                   <tr>
                     <!-- ./paraf tutor satu -->
                     <td class="text-center">
-                      <img class="img-fluid" src="{{ asset('storage/signature/' . $ttd_officer) }}" alt="paraf-satu" />
+                      @php
+                        $officerPath = public_path('storage/signature/' . $ttd_officer);
+                        $officerData = file_exists($officerPath) && is_file($officerPath) ? base64_encode(file_get_contents($officerPath)) : '';
+                        $officerSrc = $officerData ? 'data:image/png;base64,' . $officerData : '';
+                      @endphp
+                      @if($officerSrc)
+                        <img class="img-fluid" src="{{ $officerSrc }}" alt="paraf-satu" />
+                      @endif
                       {{-- <hr class="w-75 mx-auto"> --}}
                       <p style="border-top: 1px solid black; width: 75%; padding-top: 15px;">{{ $permit->nama_officer }}</p>
                     </td>
 
                     <!-- ./paraf penanggung jawab -->
                     <td class="text-center">
-                      <img class="img-fluid" src="{{ asset('storage/signature/' . $ttd_pj) }}" alt="ttd_pj" />
+                      @php
+                        $pjPath = public_path('storage/signature/' . $ttd_pj);
+                        $pjData = file_exists($pjPath) && is_file($pjPath) ? base64_encode(file_get_contents($pjPath)) : '';
+                        $pjSrc = $pjData ? 'data:image/png;base64,' . $pjData : '';
+                      @endphp
+                      @if($pjSrc)
+                        <img class="img-fluid" src="{{ $pjSrc }}" alt="ttd_pj" />
+                      @endif
                       {{-- <hr class="w-75 mx-auto"> --}}
                       <p style="border-top: 1px solid black; width: 75%; padding-top: 15px;">{{ $permit->nama_pj }}</p>
                     </td>

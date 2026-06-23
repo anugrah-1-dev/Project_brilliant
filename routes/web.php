@@ -87,7 +87,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
 
 	// Program Belajar
 	Route::get('/courses/{course}/status', [AdminCourseController::class, 'status'])->name('courses.status');
-	Route::resource('courses', AdminCourseController::class)->only(['index', 'create', 'store', 'show']);
+	Route::resource('courses', AdminCourseController::class);
 
 	// Luaran Program Belajar
 	Route::prefix('courses')->name('course.')->group(function () {

@@ -129,7 +129,12 @@
             <tr>
                 <td width="50%">
                     <div class="brand-logo">
-                        <img src="{{ public_path('/assets/image/favicon.png') }}" alt="Logo" />
+                        @php
+                            $imagePath = public_path('assets/image/favicon.png');
+                            $imageData = base64_encode(file_get_contents($imagePath));
+                            $src = 'data:image/png;base64,' . $imageData;
+                        @endphp
+                        <img src="{{ $src }}" alt="Logo" />
                     </div>
                 </td>
                 <td width="50%" class="text-right">

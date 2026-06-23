@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Course\StoreRequest;
+use App\Http\Requests\Course\UpdateRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CourseController extends Controller
@@ -64,15 +65,26 @@ class CourseController extends Controller
 	 */
 	public function edit(string $id)
 	{
-		//
+		$course = Course::findOrFail($id);
+		return view('pages.admin.courses.edit', compact('course'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 */
-	public function update(Request $request, string $id)
+	public function update(UpdateRequest $request, string $id)
 	{
-		//
+		$course = Course::findOrFail($id);
+		$validated = $request->validated();
+		
+		if ($course->name !== $validated['name']) {
+			$validated['slug'] = Str::slug($validated['name']) . '-' . Str::lower(Str::random(5));
+		}
+
+		$course->update($validated);
+
+		Alert::success('Berhasil', 'program belajar berhasil diupdate');
+		return redirect()->route('admin.courses.index')->with('success', 'program belajar berhasil diupdate.');
 	}
 
 	/**
@@ -80,7 +92,11 @@ class CourseController extends Controller
 	 */
 	public function destroy(string $id)
 	{
-		//
+		$course = Course::findOrFail($id);
+		$course->delete();
+
+		Alert::success('Berhasil', 'program belajar berhasil dihapus');
+		return redirect()->route('admin.courses.index')->with('success', 'program belajar berhasil dihapus.');
 	}
 
 	/**
