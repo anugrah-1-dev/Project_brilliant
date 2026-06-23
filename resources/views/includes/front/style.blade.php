@@ -45,7 +45,7 @@
         position: fixed;
         width: 60px;
         height: 60px;
-        bottom: 40px;
+        bottom: 70px;
         background-color: #0C9;
         color: #FFF;
         border-radius: 50px;
@@ -56,6 +56,13 @@
     .subname {
         color: #000;
         text-decoration: none;
+        display: block;
+        width: 120px;
+        margin-left: -30px; /* Center 120px under 60px circle */
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.2;
+        margin-top: -15px; /* Pull it slightly closer to the circle */
     }
 
     .my-float {

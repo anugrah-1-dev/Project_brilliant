@@ -36,6 +36,7 @@
             <th>Nomor Rekening</th>
             <th>Atas Nama</th>
             <th>Status</th>
+            <th>Aksi</th>
           </tr>
         </thead>
 
@@ -51,6 +52,14 @@
                 @else
                   <span class="badge bg-danger">Tidak Aktif</span>
                 @endif
+              </td>
+              <td>
+                <a href="{{ route('admin.banks.edit', $bank->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                <form action="{{ route('admin.banks.destroy', $bank->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus bank ini?');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                </form>
               </td>
             </tr>
           @endforeach

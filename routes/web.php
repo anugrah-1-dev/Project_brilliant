@@ -108,7 +108,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
 
 	// Bank
 	Route::get('/banks/{bank}/status', [AdminBankController::class, 'status'])->name('banks.status');
-	Route::resource('banks', AdminBankController::class)->only(['index', 'create', 'store', 'show']);
+	Route::resource('banks', AdminBankController::class);
 
 	Route::get('/permits/{permit}/status', [AdminPermitController::class, 'status'])->name('permit.member.status');
 	Route::resource('permits', AdminPermitController::class)->only(['index', 'show']);

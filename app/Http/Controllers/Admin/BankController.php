@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Bank\StoreRequest;
+use App\Http\Requests\Bank\UpdateRequest;
 use App\Models\Bank;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -60,25 +61,33 @@ class BankController extends Controller
 	/**
 	 * Show the form for editing the specified resource.
 	 */
-	public function edit(string $id)
+	public function edit(Bank $bank)
 	{
-		//
+		return view('pages.admin.banks.edit', [
+			'bank' => $bank,
+		]);
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 */
-	public function update(Request $request, string $id)
+	public function update(UpdateRequest $request, Bank $bank)
 	{
-		//
+		$validated = $request->validated();
+		$bank->update($validated);
+
+		Alert::success('Berhasil', 'Data bank berhasil diperbarui');
+		return redirect()->route('admin.banks.index');
 	}
 
 	/**
 	 * Remove the specified resource from storage.
 	 */
-	public function destroy(string $id)
+	public function destroy(Bank $bank)
 	{
-		//
+		$bank->delete();
+		Alert::success('Berhasil', 'Data bank berhasil dihapus');
+		return redirect()->route('admin.banks.index');
 	}
 
 	/**
