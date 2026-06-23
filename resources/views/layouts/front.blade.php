@@ -25,18 +25,21 @@
 
         @yield('content')
 
-        {{-- <a href="https://wa.me/6282228220233" target="_blank" class="float">
-            <i class="fab fa-whatsapp fa-lg my-float"></i> <br><br>
-            <strong class="subname">CS 1</strong>
-        </a>
-        <a href="https://wa.me/6281314727263" target="_blank" class="float-two">
-            <i class="fab fa-whatsapp fa-lg my-float"></i> <br><br>
-            <strong class="subname">CS 2</strong>
-        </a> --}}
-        <a href="#" target="_blank" class="float-three">
-            <i class="fab fa-whatsapp fa-lg my-float"></i> <br><br>
-            <strong class="subname">CS</strong>
-        </a>
+        @php
+            $waContacts = \App\Models\Contact::where('status', 'active')->get();
+            $baseRight = 40;
+            $gap = 65;
+        @endphp
+
+        @foreach($waContacts as $index => $contact)
+            @php
+                $waText = "Halo, saya mau tanya-tanya tentang program di Brilliant English Course. Saya tahu info ini dari websitenya: https://pendaftarankampunginggris.com/";
+            @endphp
+            <a href="https://wa.me/{{ $contact->phone }}?text={{ urlencode($waText) }}" target="_blank" class="float-dynamic" style="right: {{ $baseRight + ($index * $gap) }}px;">
+                <i class="fab fa-whatsapp fa-lg my-float"></i> <br><br>
+                <strong class="subname">{{ $contact->name }}</strong>
+            </a>
+        @endforeach
 
         <footer class="text-white text-center p-3" style="background-color: #101C3D">
             Kampung Inggris Pusat. © 2023 Brilliant English Course. Hak Cipta Dilindungi Oleh Undang-Undang

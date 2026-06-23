@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\PeriodController as AdminPeriodController;
 use App\Http\Controllers\Admin\TransportController as AdminTransportController;
 use App\Http\Controllers\Admin\BankController as AdminBankController;
 use App\Http\Controllers\Admin\PermitController as AdminPermitController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
 use App\Http\Controllers\Front\DaftarController;
 use App\Http\Controllers\Front\LandingController;
@@ -111,6 +112,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
 
 	Route::get('/permits/{permit}/status', [AdminPermitController::class, 'status'])->name('permit.member.status');
 	Route::resource('permits', AdminPermitController::class)->only(['index', 'show']);
+
+	// Kontak CS (WhatsApp)
+	Route::get('/contacts/{contact}/status', [AdminContactController::class, 'status'])->name('contacts.status');
+	Route::resource('contacts', AdminContactController::class)->except(['create', 'show', 'edit']);
 });
 
 // Admin Profile
