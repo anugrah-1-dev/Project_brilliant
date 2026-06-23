@@ -62,7 +62,7 @@
         text-align: center;
         font-size: 13px;
         line-height: 1.2;
-        margin-top: -15px; /* Pull it slightly closer to the circle */
+        margin-top: 10px; 
     }
 
     .my-float {
