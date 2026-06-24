@@ -84,24 +84,30 @@ class PaymentController extends Controller
 	}
 
 	/**
-	 * Print out the specified resource data from storage.
+	 * Download out the specified resource data from storage.
 	 */
-	public function download(Payment $payment)
+	public function download(Payment $payment, $type = 'course')
 	{
-		// $path = public_path('/storage/images/payment/course/' . basename($payment->course_payment));
-		// if (file_exists($path)) {
-		// 	return response()->download($path);
-		// }
+		$path = $type === 'transport' ? $payment->transport_payment : $payment->course_payment;
 
-		// return abort(404);
-
-		if (Storage::disk('public')->exists($payment->course_payment)) {
-			// dd($payment->course_payment);
-			// Storage::download($payment->course_payment);
-			$url = Storage::url('/images/payment/course/' . basename($payment->course_payment));
-			return redirect($url);
+		if (!$path) {
+			return abort(404, 'File path not found in database.');
 		}
 
-		return abort(404);
+		// Try multiple possible paths to handle old and new upload structures
+		$possiblePaths = [
+			$path,
+			'payment/' . $type . '/' . basename($path),
+			'images/payment/' . $type . '/' . basename($path),
+			'public/payment/' . $type . '/' . basename($path),
+		];
+
+		foreach ($possiblePaths as $possiblePath) {
+			if (Storage::disk('public')->exists($possiblePath)) {
+				return Storage::disk('public')->download($possiblePath);
+			}
+		}
+
+		return abort(404, 'File not found on server.');
 	}
 }

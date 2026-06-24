@@ -83,7 +83,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
 
 	// List Transaksi (Payment/Pembayaran)
 	Route::get('/payments/{payment}/print', [AdminPaymentController::class, 'print'])->name('payments.print');
-	Route::get('/payments/{payment}/download', [AdminPaymentController::class, 'download'])->name('payments.download');
+	Route::get('/payments/{payment}/download/{type?}', [AdminPaymentController::class, 'download'])->name('payments.download');
 	Route::resource('payments', AdminPaymentController::class)->only(['index', 'show']);
 
 	// Program Belajar

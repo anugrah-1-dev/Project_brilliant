@@ -188,20 +188,20 @@
       </div>
 
       <div class="row">
-        @if ($payment->transport->price != 0)
+        @if ($payment->transport?->price != 0)
           <div class="col-lg-6 col-12">
-            <a target="_blank" href="{{ asset('storage/' . $payment->course_payment) }}" class="btn btn-primary text-capitalize d-block mx-auto">
+            <a target="_blank" href="{{ route('admin.payments.download', [$payment->id, 'course']) }}" class="btn btn-primary text-capitalize d-block mx-auto">
               Download Bukti Transfer Program Belajar
             </a>
           </div>
           <div class="col-lg-6 col-12">
-            <a target="_blank" href="{{ asset('storage/' . $payment->transport_payment) }}" class="btn btn-primary text-capitalize d-block mx-auto">
+            <a target="_blank" href="{{ route('admin.payments.download', [$payment->id, 'transport']) }}" class="btn btn-primary text-capitalize d-block mx-auto">
               Download Bukti Transfer Akomodasi
             </a>
           </div>
         @else
           <div class="col-12">
-            <a target="_blank" href="{{ asset('storage/' . $payment->course_payment) }}" class="btn btn-primary text-capitalize d-block mx-auto">
+            <a target="_blank" href="{{ route('admin.payments.download', [$payment->id, 'course']) }}" class="btn btn-primary text-capitalize d-block mx-auto">
               Download Bukti Transfer Program Belajar
             </a>
           </div>
