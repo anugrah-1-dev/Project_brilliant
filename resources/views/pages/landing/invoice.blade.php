@@ -119,10 +119,40 @@
             border-top: 1px solid #eee;
             padding-top: 10px;
         }
+
+        /* Watermark */
+        .watermark {
+            position: fixed;
+            top: 25%;
+            left: 10%;
+            width: 80%;
+            opacity: 0.1;
+            z-index: -1000;
+            text-align: center;
+        }
+        .watermark img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 
 <body>
+    @php
+        $watermarkPath = public_path('assets/image/logo/logo.jpeg');
+        $watermarkSrc = '';
+        if (file_exists($watermarkPath)) {
+            $watermarkData = base64_encode(file_get_contents($watermarkPath));
+            $watermarkSrc = 'data:image/jpeg;base64,' . $watermarkData;
+        }
+    @endphp
+
+    @if($watermarkSrc)
+    <div class="watermark">
+        <img src="{{ $watermarkSrc }}" alt="Watermark" />
+    </div>
+    @endif
+
     <div class="invoice-box">
 
         <table class="header-table">
