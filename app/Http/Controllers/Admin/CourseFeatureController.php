@@ -64,25 +64,40 @@ class CourseFeatureController extends Controller
 	/**
 	 * Show the form for editing the specified resource.
 	 */
-	public function edit(string $id)
+	public function edit(CourseFeature $feature)
 	{
-		//
+		$feature->load('course');
+		return view('pages.admin.courses.features.edit', [
+			'feature' => $feature,
+		]);
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 */
-	public function update(Request $request, string $id)
+	public function update(Request $request, CourseFeature $feature)
 	{
-		//
+		$validated = $request->validate([
+			'feature' => 'required|string|max:255',
+		]);
+
+		$feature->update($validated);
+
+		Alert::success('Berhasil', 'luaran program belajar berhasil diupdate');
+		return redirect()->route('admin.courses.show', $feature->course->slug);
 	}
 
 	/**
 	 * Remove the specified resource from storage.
 	 */
-	public function destroy(string $id)
+	public function destroy(CourseFeature $feature)
 	{
-		//
+		$feature->load('course');
+		$slug = $feature->course->slug;
+		$feature->delete();
+
+		Alert::success('Berhasil', 'luaran program belajar berhasil dihapus');
+		return redirect()->route('admin.courses.show', $slug);
 	}
 
 	/**

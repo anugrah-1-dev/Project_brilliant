@@ -92,10 +92,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
 
 	// Luaran Program Belajar
 	Route::prefix('courses')->name('course.')->group(function () {
-		// Route::resource('features', AdminCourseFeatureController::class)->only(['show', 'edit', 'update']);
 		Route::post('{course}/feature/', [AdminCourseFeatureController::class, 'store'])->name('features.store');
 		Route::get('{course}/feature/create/', [AdminCourseFeatureController::class, 'create'])->name('features.create');
 		Route::get('/feature/{feature}', [AdminCourseFeatureController::class, 'show'])->name('features.show');
+		Route::get('/feature/{feature}/edit', [AdminCourseFeatureController::class, 'edit'])->name('features.edit');
+		Route::put('/feature/{feature}', [AdminCourseFeatureController::class, 'update'])->name('features.update');
+		Route::delete('/feature/{feature}', [AdminCourseFeatureController::class, 'destroy'])->name('features.destroy');
 		Route::get('/feature/{feature}/status', [AdminCourseFeatureController::class, 'status'])->name('features.status');
 	});
 
