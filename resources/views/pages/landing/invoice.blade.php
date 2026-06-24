@@ -130,7 +130,7 @@
                 <td width="50%">
                     <div class="brand-logo">
                         @php
-                            $imagePath = public_path('assets/image/favicon.png');
+                            $imagePath = public_path('assets/image/logo/logo-surat.png');
                             $imageData = base64_encode(file_get_contents($imagePath));
                             $src = 'data:image/png;base64,' . $imageData;
                         @endphp
@@ -227,7 +227,11 @@
             <p><strong>Pesan Penting:</strong></p>
             <p style="margin-top: 5px;">
                 Faktur ini dibuat melalui komputer dan sah tanpa tanda tangan dan stempel.<br>
-                Kami ingin menegaskan bahwa uang yang telah ditransfer untuk pembayaran uang muka (DP) maupun pelunasan tidak dapat direfund.
+                Kami ingin menegaskan bahwa uang yang telah ditransfer untuk pembayaran uang muka (DP) maupun pelunasan tidak dapat direfund.<br><br>
+                Kamu harus datang di Brilliant 2 atau 1 hari sebelum tanggal Start Program dimulai. Dikarenakan akan ada Placement Tes Kemampuan Bahasa Inggris kamu dan akan masuk asrama sebelum tanggal program dimulai.<br><br>
+                Harap cetak invoice ini dan tunjukan di Front Office Brilliant ketika daftar ulang dan pelunasan.<br><br>
+                Thank you, Welcome to Brilliant!<br>
+                We Are Big Family!
             </p>
         </div>
 

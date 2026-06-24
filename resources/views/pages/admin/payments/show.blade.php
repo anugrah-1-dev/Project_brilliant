@@ -119,7 +119,11 @@
               <div class="nk-notes ff-italic fs-12px text-soft">
                 Invoice ini dibuat melalui komputer dan sah tanpa tanda tangan dan stempel.<br><br>
                 Pesan Penting: Kami ingin menegaskan bahwa uang yang telah ditransfer untuk pembayaran uang muka (DP) maupun pelunasan (lunas) tidak
-                dapat direfund.<br>
+                dapat direfund.<br><br>
+                Kamu harus datang di Brilliant 2 atau 1 hari sebelum tanggal Start Program dimulai. Dikarenakan akan ada Placement Tes Kemampuan Bahasa Inggris kamu dan akan masuk asrama sebelum tanggal program dimulai.<br><br>
+                Harap cetak invoice ini dan tunjukan di Front Office Brilliant ketika daftar ulang dan pelunasan.<br><br>
+                Thank you, Welcome to Brilliant!<br>
+                We Are Big Family!
               </div>
             </div>
           </div>
@@ -179,7 +183,11 @@
               <div class="nk-notes ff-italic fs-12px text-soft">
                 Invoice ini dibuat melalui komputer dan sah tanpa tanda tangan dan stempel.<br><br>
                 Pesan Penting: Kami ingin menegaskan bahwa uang yang telah ditransfer untuk pembayaran uang muka (DP) maupun pelunasan (lunas) tidak
-                dapat direfund.<br>
+                dapat direfund.<br><br>
+                Kamu harus datang di Brilliant 2 atau 1 hari sebelum tanggal Start Program dimulai. Dikarenakan akan ada Placement Tes Kemampuan Bahasa Inggris kamu dan akan masuk asrama sebelum tanggal program dimulai.<br><br>
+                Harap cetak invoice ini dan tunjukan di Front Office Brilliant ketika daftar ulang dan pelunasan.<br><br>
+                Thank you, Welcome to Brilliant!<br>
+                We Are Big Family!
               </div>
             </div>
           </div>
