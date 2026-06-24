@@ -25,26 +25,26 @@ class Payment extends Model
 
 	public function bank()
 	{
-		return $this->belongsTo(Bank::class);
+		return $this->belongsTo(Bank::class)->withTrashed();
 	}
 
 	public function student()
 	{
-		return $this->belongsTo(Student::class);
+		return $this->belongsTo(Student::class)->withTrashed();
 	}
 
 	public function transport()
 	{
-		return $this->belongsTo(Transport::class);
+		return $this->belongsTo(Transport::class)->withTrashed();
 	}
 
 	public function period()
 	{
-		return $this->belongsTo(Period::class);
+		return $this->belongsTo(Period::class)->withTrashed();
 	}
 
 	public function course()
 	{
-		return $this->belongsTo(Course::class);
+		return $this->belongsTo(Course::class)->withTrashed();
 	}
 }

@@ -28,10 +28,10 @@
         <tbody class="text-capitalize">
           @foreach ($payments as $payment)
             <tr>
-              <td>{{ $payment->student->fullname }}</td>
-              <td>{{ $payment->course->name }}</td>
-              <td>{{ \Laraindo\TanggalFormat::DateIndo($payment->period->date) }}</td>
-              <td>{{ $payment->bank->name }} {{ $payment->type == 'DP' ? 'DP' : '' }}</td>
+              <td>{{ $payment->student?->fullname ?? '-' }}</td>
+              <td>{{ $payment->course?->name ?? '-' }}</td>
+              <td>{{ $payment->period ? \Laraindo\TanggalFormat::DateIndo($payment->period->date) : '-' }}</td>
+              <td>{{ $payment->bank?->name ?? '-' }} {{ $payment->type == 'DP' ? 'DP' : '' }}</td>
               <td>
                 {{ $payment->type == 'DP' ? \Laraindo\RupiahFormat::currency(250000) : \Laraindo\RupiahFormat::currency($payment->total) }}
               </td>
