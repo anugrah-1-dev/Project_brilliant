@@ -126,7 +126,7 @@
             top: 25%;
             left: 10%;
             width: 80%;
-            opacity: 0.1;
+            opacity: 0.25; /* Ditingkatkan agar lebih jelas */
             z-index: -1000;
             text-align: center;
         }
