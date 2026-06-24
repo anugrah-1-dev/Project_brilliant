@@ -34,8 +34,14 @@
         @foreach($waContacts as $index => $contact)
             @php
                 $waText = "Halo, saya mau tanya-tanya tentang program di Brilliant English Course. Saya tahu info ini dari websitenya: https://pendaftarankampunginggris.com/";
+                
+                // Ensure phone number only contains digits and starts with 62 instead of 0
+                $phone = preg_replace('/[^0-9]/', '', $contact->phone);
+                if (str_starts_with($phone, '0')) {
+                    $phone = '62' . substr($phone, 1);
+                }
             @endphp
-            <a href="https://wa.me/{{ $contact->phone }}?text={{ urlencode($waText) }}" target="_blank" class="float-dynamic" style="right: {{ $baseRight + ($index * $gap) }}px;">
+            <a href="https://api.whatsapp.com/send?phone={{ $phone }}&text={{ urlencode($waText) }}" target="_blank" class="float-dynamic" style="right: {{ $baseRight + ($index * $gap) }}px;">
                 <i class="fab fa-whatsapp fa-lg my-float"></i> <br><br>
                 <strong class="subname">{{ $contact->name }}</strong>
             </a>
