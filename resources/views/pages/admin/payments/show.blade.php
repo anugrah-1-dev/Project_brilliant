@@ -189,21 +189,27 @@
 
       <div class="row">
         @if ($payment->transport?->price != 0)
-          <div class="col-lg-6 col-12">
-            <a target="_blank" href="{{ route('admin.payments.download', [$payment->id, 'course']) }}" class="btn btn-primary text-capitalize d-block mx-auto">
-              Download Bukti Transfer Program Belajar
-            </a>
+          <div class="col-lg-6 col-12 text-center mb-3">
+            <p class="mb-2">Bukti Transfer Program Belajar</p>
+            <div class="btn-group">
+              <a target="_blank" href="{{ route('admin.payments.download', [$payment->id, 'course', 'action' => 'view']) }}" class="btn btn-info text-capitalize">Lihat</a>
+              <a target="_blank" href="{{ route('admin.payments.download', [$payment->id, 'course']) }}" class="btn btn-primary text-capitalize">Download</a>
+            </div>
           </div>
-          <div class="col-lg-6 col-12">
-            <a target="_blank" href="{{ route('admin.payments.download', [$payment->id, 'transport']) }}" class="btn btn-primary text-capitalize d-block mx-auto">
-              Download Bukti Transfer Akomodasi
-            </a>
+          <div class="col-lg-6 col-12 text-center mb-3">
+            <p class="mb-2">Bukti Transfer Akomodasi</p>
+            <div class="btn-group">
+              <a target="_blank" href="{{ route('admin.payments.download', [$payment->id, 'transport', 'action' => 'view']) }}" class="btn btn-info text-capitalize">Lihat</a>
+              <a target="_blank" href="{{ route('admin.payments.download', [$payment->id, 'transport']) }}" class="btn btn-primary text-capitalize">Download</a>
+            </div>
           </div>
         @else
-          <div class="col-12">
-            <a target="_blank" href="{{ route('admin.payments.download', [$payment->id, 'course']) }}" class="btn btn-primary text-capitalize d-block mx-auto">
-              Download Bukti Transfer Program Belajar
-            </a>
+          <div class="col-12 text-center mb-3">
+            <p class="mb-2">Bukti Transfer Program Belajar</p>
+            <div class="btn-group">
+              <a target="_blank" href="{{ route('admin.payments.download', [$payment->id, 'course', 'action' => 'view']) }}" class="btn btn-info text-capitalize">Lihat</a>
+              <a target="_blank" href="{{ route('admin.payments.download', [$payment->id, 'course']) }}" class="btn btn-primary text-capitalize">Download</a>
+            </div>
           </div>
         @endif
       </div>

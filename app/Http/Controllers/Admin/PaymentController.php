@@ -102,8 +102,13 @@ class PaymentController extends Controller
 			'public/payment/' . $type . '/' . basename($path),
 		];
 
+		$action = request()->query('action', 'download');
+
 		foreach ($possiblePaths as $possiblePath) {
 			if (Storage::disk('public')->exists($possiblePath)) {
+				if ($action === 'view') {
+					return Storage::disk('public')->response($possiblePath);
+				}
 				return Storage::disk('public')->download($possiblePath);
 			}
 		}
