@@ -59,13 +59,13 @@
 
     @if($popupPoster && $popupPoster->image)
         <div class="modal fade" id="posterPopupModal" tabindex="-1" aria-labelledby="posterPopupModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content" style="background: transparent; border: none;">
                     <div class="modal-header border-0 p-0" style="position: absolute; right: -10px; top: -10px; z-index: 1050;">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #fff; border-radius: 50%; opacity: 1; padding: 10px;"></button>
                     </div>
                     <div class="modal-body p-0 text-center">
-                        <img src="{{ Storage::url($popupPoster->image) }}" class="img-fluid rounded" alt="Promo Poster" style="max-height: 80vh; object-fit: contain;">
+                        <img src="{{ Storage::url($popupPoster->image) }}" class="img-fluid rounded" alt="Promo Poster" style="max-height: 90vh; width: 100%; object-fit: contain;">
                     </div>
                 </div>
             </div>
