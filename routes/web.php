@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\TransportController as AdminTransportController;
 use App\Http\Controllers\Admin\BankController as AdminBankController;
 use App\Http\Controllers\Admin\PermitController as AdminPermitController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Admin\PopupController as AdminPopupController;
 
 use App\Http\Controllers\Front\DaftarController;
 use App\Http\Controllers\Front\LandingController;
@@ -118,6 +119,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
 	// Kontak CS (WhatsApp)
 	Route::get('/contacts/{contact}/status', [AdminContactController::class, 'status'])->name('contacts.status');
 	Route::resource('contacts', AdminContactController::class)->except(['create', 'show', 'edit']);
+
+    // Popup Poster
+    Route::resource('popups', AdminPopupController::class)->only(['index', 'store']);
 });
 
 // Admin Profile

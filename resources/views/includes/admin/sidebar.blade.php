@@ -88,6 +88,13 @@
                         </a>
                     </li>
 
+                    <li class="nk-menu-item">
+                        <a href="{{ route('admin.popups.index') }}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-image"></em></span>
+                            <span class="nk-menu-text">Popup Poster</span>
+                        </a>
+                    </li>
+
                     <!-- .nk-menu-item-heading -->
                     {{-- <li class="nk-menu-heading">
                         <h6 class="overline-title text-primary-alt">Perizinan</h6>
